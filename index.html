@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnerGlobix :: Home</title>
+
+    <!-- Preload Critical Images -->
+    <link
+      rel="preload"
+      href="assets/Links/compressed-img/holding-hero.webp"
+      as="image"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      href="assets/Links/square-logo.png"
+      as="image"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      href="assets/Links/compressed-img/imagecardimg.jpg"
+      as="image"
+      type="image/jpeg"
+    />
+    <link
+      rel="preload"
+      href="assets/Links/compressed-img/split-right-cropped.png"
+      as="image"
+      type="image/png"
+    />
+    <!-- Inlined in CSS for instant loading -->
+    <!--
+    <link
+      rel="preload"
+      href="assets/Links/compressed-img/bg-images/circle-index.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="assets/Links/compressed-img/bg-images/circle-contact.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    -->
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/local.css" />
+    <style>
+      .description-link-custom {
+        padding: 0.625rem 3rem;
+        background-color: var(
+          --color-beige-c,
+          #dbd2c2
+        ); /* fallback to gold-card if variable is missing */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .description-link-custom:hover {
+        background-color: #ffffff !important;
+      }
+
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: auto;
+        margin-top: 0.5rem; /* mt-2 */
+      }
+
+      .logo-img {
+        height: 3.5rem; /* h-14 */
+        object-fit: contain;
+      }
+
+      @media (min-width: 768px) {
+        .logo-img {
+          height: 4rem; /* md:h-16 */
+        }
+      }
+
+      .logo-subtitle {
+        font-family: "Adelle-Sans-regular", sans-serif;
+        color: white;
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        font-weight: 600;
+        margin-top: 0.25rem;
+      }
+
+      @media (min-width: 768px) {
+        .logo-subtitle {
+          font-size: 0.7rem;
+        }
+      }
+
+      .hamburger-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        padding: 0;
+        cursor: pointer;
+        pointer-events: auto;
+        margin-top: 0.5rem; /* mt-2 */
+        transition: color 0.15s ease-in-out;
+      }
+
+      .hamburger-btn:hover {
+        color: #d1d5db; /* hover:text-gray-300 */
+      }
+
+      .hamburger-btn svg {
+        width: 2rem; /* w-8 */
+        height: 2rem; /* h-8 */
+      }
+
+      /* Premium Overlapping Skyline & Card Styles matching demo design.png */
+      .custom-accordion-width-wrapper {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      /* On small devices (landscape phones, 576px and up) - matches container */
+      @media (min-width: 576px) {
+        .custom-accordion-width-wrapper {
+          max-width: 540px;
+        }
+      }
+
+      /* On tablets (768px and up) - matches container */
+      @media (min-width: 768px) {
+        .custom-accordion-width-wrapper {
+          max-width: 720px;
+        }
+      }
+
+      /* On lg devices (992px to 1199px) - matches container */
+      @media (min-width: 992px) and (max-width: 1199px) {
+        .custom-accordion-width-wrapper {
+          max-width: 960px;
+        }
+      }
+
+      /* Above lg devices (1200px and up) - follows what is made already */
+      @media (min-width: 1200px) {
+        .custom-accordion-width-wrapper {
+          max-width: 1143px;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      /* Mobile: No background image on wrapper — image shown via skyline-banner instead */
+      @media (max-width: 575px) {
+        .custom-accordion-width-wrapper {
+          background-image: none;
+          background-color: transparent;
+          padding: 0 35px;
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* Desktop: Background image sits on the banner element */
+      .skyline-banner {
+        background-image: url("assets/Links/compressed-img/imagecardimg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 480px;
+        border-radius: 4px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin-top: 3.5rem;
+        display: block;
+      }
+
+      /* Mobile: Show banner as a visible image block */
+      @media (max-width: 575px) {
+        .skyline-banner {
+          display: block;
+          height: 280px;
+          margin-top: 0;
+          border-radius: 4px;
+        }
+      }
+
+      .about-cards-row {
+        margin-top: -80px !important; /* Pull the cards row UP slightly so only a small portion overlaps on desktop & tablets */
+        position: relative;
+        z-index: 2;
+      }
+
+      @media (min-width: 768px) {
+        .about-cards-row {
+          max-width: 85% !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+
+      /* Mobile: Cards overlap the bottom of the skyline banner */
+      @media (max-width: 575px) {
+        .about-cards-row {
+          margin-top: -40px !important;
+        }
+      }
+
+      .custom-card-gold {
+        background-color: #a69c86; /* Premium desaturated gold/bronze color matching mockup */
+        border-radius: 4px;
+        padding: 3rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .custom-card-gold:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+      }
+
+      .custom-card-title {
+        font-family: "Adelle-Sans-Bold", sans-serif;
+        font-size: 2.25rem;
+        color: #ffffff !important;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+      }
+
+      .custom-card-text {
+        font-family: "Adelle-Sans-Regular", sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: #ffffff !important;
+        margin: 0;
+      }
+
+      @media (max-width: 992px) {
+        .custom-card-gold {
+          padding: 2rem 2rem;
+        }
+        .custom-card-title {
+          font-size: 1.85rem;
+        }
+        .custom-card-text {
+          font-size: 1.15rem;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .custom-card-gold {
+          padding: 1.5rem 1.5rem;
+          background-color: #a69c86; /* Solid gold on mobile — cards sit independently below the image */
+        }
+        .custom-card-title {
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+        .custom-card-text {
+          font-size: 1.05rem;
+        }
+      }
+
+      .gold-divider-line {
+        width: 70%;
+        max-width: 450px;
+        height: 1px;
+        background-color: white;
+        border: none;
+        display: block;
+      }
+
+      /* Custom Discover Button Styling */
+      .btn-discover {
+        font-family: "Adelle-Sans-Regular", sans-serif !important;
+        border: 1px solid rgba(194, 177, 143, 0.4);
+        color: #c2b18f;
+        background-color: #000;
+        padding: 0.5rem 2rem; /* px-8 py-2 */
+        letter-spacing: 0.25em; /* tracking-[0.25em] */
+        font-size: 11px; /* text-[11px] */
+        text-transform: uppercase;
+        display: inline-block;
+        font-weight: 500;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        border-radius: 4px;
+      }
+
+      /* Hover effects - Desktop only to avoid sticky hover on mobile */
+      @media (hover: hover) {
+        .btn-discover:hover {
+          background-color: #000;
+          color: #ffffff;
+          border-color: #c2b18f;
+          box-shadow: 0 0 15px rgba(194, 177, 143, 0.5);
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Press effect - Mobile and Desktop */
+      .btn-discover:active {
+        background-color: #000;
+        color: #ffffff;
+        border-color: #c2b18f;
+        box-shadow: 0 0 25px rgba(194, 177, 143, 0.8);
+        transform: scale(0.95) translateY(0);
+        transition: all 0.05s ease;
+      }
+
+      .menu-wrapper {
+        position: relative;
+        pointer-events: auto;
+      }
+
+      /* Dropdown Navigation Menu & Mobile Sidebar */
+      .nav-menu-container {
+        position: fixed;
+        top: 0;
+        right: -320px; /* hidden off-screen by default on mobile */
+        width: 300px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.96);
+        backdrop-filter: blur(12px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+
+      .nav-menu-container.active {
+        right: 0; /* slide in on mobile */
+        pointer-events: auto;
+      }
+
+      .close-menu-btn {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+        transition: color 0.15s ease-in-out;
+      }
+
+      .close-menu-btn:hover {
+        color: #c2b18f;
+      }
+
+      /* Desktop dropdown styling */
+      @media (min-width: 992px) {
+        .nav-menu-container {
+          position: absolute !important;
+          top: 100% !important;
+          right: 0 !important;
+          left: auto !important;
+          width: 250px !important;
+          height: auto !important;
+          background-color: rgba(0, 0, 0, 0.95) !important;
+          backdrop-filter: blur(8px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          border-radius: 0.5rem !important;
+          z-index: 1000 !important;
+          padding: 0.5rem 0 !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transform: translateY(-10px) !important;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+          overflow-y: visible !important; /* to allow submenus to fly out */
+        }
+
+        .nav-menu-container.active {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(0) !important;
+          pointer-events: auto !important;
+        }
+
+        .close-menu-btn {
+          display: none !important;
+        }
+      }
+
+      .nav-menu-list {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+      }
+
+      .nav-menu-item {
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: left !important;
+        padding: 0 !important;
+      }
+
+      .nav-menu-link {
+        color: #fff !important;
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.1em !important;
+        text-decoration: none !important;
+        text-transform: uppercase !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 1rem 1.5rem !important;
+        transition: background-color 0.2s ease, color 0.2s ease !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .nav-menu-link:hover {
+        color: #c2b18f !important;
+        background-color: rgba(255, 255, 255, 0.05) !important;
+      }
+
+      /* Submenu styles */
+      .nav-submenu {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+      }
+
+      .submenu-link {
+        color: #fff !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease, background-color 0.2s ease !important;
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+      }
+
+      .submenu-arrow {
+        transition: transform 0.2s ease-in-out !important;
+        margin-left: 0.5rem !important;
+        vertical-align: middle !important;
+      }
+
+      /* Mobile/Tablet Submenu Accordion styles */
+      @media (max-width: 991.98px) {
+        .nav-submenu {
+          display: none !important;
+          padding-left: 1.5rem !important;
+          /* margin: 0.5rem 0 1rem 0 !important; */
+        }
+
+        .nav-submenu li {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+        }
+
+        .nav-submenu.open {
+          display: flex !important;
+          flex-direction: column !important;
+        }
+
+        .submenu-link {
+          color: #ccc !important;
+          font-size: 0.9rem !important;
+          display: block !important;
+          padding: 0.6rem 0 !important;
+        }
+
+        .submenu-link:hover {
+          color: #c2b18f !important;
+        }
+
+        .has-submenu.active > .nav-menu-link .submenu-arrow {
+          transform: rotate(180deg) !important;
+        }
+      }
+
+      /* Desktop inline expanding submenus */
+      @media (min-width: 992px) {
+        .nav-menu-item {
+          position: relative !important;
+        }
+
+        .nav-submenu {
+          position: relative !important;
+          top: auto !important;
+          right: auto !important;
+          left: auto !important;
+          margin: 0 !important;
+          width: 100% !important;
+          background-color: transparent !important;
+          backdrop-filter: none !important;
+          border: none !important;
+          border-radius: 0 !important;
+          padding: 0 !important;
+          max-height: 0 !important;
+          overflow: hidden !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease !important;
+        }
+
+        .nav-submenu.open {
+          opacity: 1 !important;
+          visibility: visible !important;
+          max-height: 300px !important;
+        }
+
+        .submenu-link {
+          font-size: 0.9rem !important;
+          text-transform: uppercase !important;
+          display: block !important;
+          padding: 0.75rem 2.5rem !important;
+        }
+
+        .submenu-link:hover {
+          color: #c2b18f !important;
+          background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        .submenu-arrow {
+          transform: none !important;
+          transition: transform 0.2s ease-in-out !important;
+        }
+
+        .has-submenu.active > .nav-menu-link .submenu-arrow {
+          transform: rotate(180deg) !important;
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <div id="loader" style="height: 100vh;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+      <div class="navbar-container">
+        <div class="energlobix__navbar">
+          <a
+            href="index.html"
+            class="logo-container"
+            style="text-decoration: none;"
+          >
+            <img
+              src="assets/Links/square-logo.png"
+              alt="EnerGlobix Holdings"
+              class="logo-img"
+            />
+          </a>
+          <!-- Hamburger Icon & Menu Dropdown Wrapper -->
+          <div class="menu-wrapper">
+            <button
+              class="hamburger-btn"
+              id="open-menu-btn"
+              aria-label="Toggle navigation"
+            >
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Dropdown Menu / Sidebar -->
+            <div class="nav-menu-container" id="nav-menu">
+              <!-- Sidebar Close Button (only visible on mobile/tablet) -->
+              <button class="close-menu-btn" id="close-menu-btn" aria-label="Close navigation">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+
+              <ul class="nav-menu-list">
+                <li class="nav-menu-item">
+                  <a
+                    href="https://energlobixholding.kasehub.com/"
+                    class="nav-menu-link"
+                    >Holding</a
+                  >
+                </li>
+                <li class="nav-menu-item has-submenu">
+                  <a href="#" class="nav-menu-link toggle-submenu">
+                    Energy
+                    <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </a>
+                  <ul class="nav-submenu">
+                    <li><a href="https://energlobix.com/" class="submenu-link">Home</a></li>
+                    <li><a href="https://energlobix.com/whoweare/" class="submenu-link">Who We Are</a></li>
+                    <li><a href="https://energlobix.com/whatwedo/" class="submenu-link">What We Do</a></li>
+                    <li><a href="https://energlobix.com/howwedoit/" class="submenu-link">How We Do It</a></li>
+                    <li><a href="https://energlobix.com/insights/" class="submenu-link">Insights</a></li>
+                    <li><a href="https://energlobix.com/contact" class="submenu-link">Contact</a></li>
+                  </ul>
+                </li>
+                <li class="nav-menu-item has-submenu">
+                  <a href="#" class="nav-menu-link toggle-submenu">
+                    Agriculture
+                    <svg class="submenu-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </a>
+                  <ul class="nav-submenu">
+                    <li><a href="https://energlobixagriculture.kasehub.com/" class="submenu-link">Home</a></li>
+                    <li><a href="https://energlobixagriculture.kasehub.com/who-we-are.html" class="submenu-link">Who We Are</a></li>
+                    <li><a href="https://energlobixagriculture.kasehub.com/what-we-do.html" class="submenu-link">What We Do</a></li>
+                    <li><a href="https://energlobixagriculture.kasehub.com/how-we-do-it.html" class="submenu-link">How We Do It</a></li>
+                  </ul>
+                </li>
+                <li class="nav-menu-item">
+                  <a
+                    href="https://energlobix.kasehub.com/"
+                    class="nav-menu-link"
+                    >Main Site</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slider-section">
+        <div
+          class="slide active relative"
+          style="
+            background-image: url('assets/Links/compressed-img/holding-hero.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right  bottom;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.4);
+              z-index: 1;
+            "
+          ></div>
+
+          <div class="hero-content-wrapper">
+            <div class="hero-mid-section">
+              <img
+                class="single-logo-transparent"
+                src="assets/Links/single-logo-transparent.png"
+                alt=""
+              />
+              <div class="hero-mid-section-content">
+                <div class="hero-title font-adelle-sans-light">
+                  EnerGlobix Holding
+                </div>
+                <div class="hero-title font-adelle-sans-light">
+                  Connecting Industries. Powering Global Growth.
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-lower-section">
+              <div class="">
+                <a class="energlobix__links" href="#about-us">
+                  <div class="energlobix__links font-adelle-sans-bold">
+                    Explore our vision
+                  </div>
+                  <img src="assets/Links/arrow.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="about-section" style="background-position: top;">
+        <div id="about-us" class="oval-container">
+          <div
+            class="energlobix__title text-center text-center text-dark-blue font-adelle-sans-bold"
+          >
+            Welcome to EnerGlobix Holdings
+          </div>
+
+          <div
+            class="container energlobix__text mt-3 font-adelle-sans-regular text-center text-white"
+          >
+            EnerGlobix Holding is an international group company
+
+            <br class="hide-on-mobile" />
+            operating across energy, development og agriculture
+          </div>
+
+          <div class="container energlobix__text mt-3 text-center text-white">
+            Built on long-term vision, operational strength and global
+
+            <br class="hide-on-mobile" />
+            partnerships, EnerGlobix brings together industries that
+
+            <br class="hide-on-mobile" />
+            support infrastructure, economic development and future
+
+            <br class="hide-on-mobile" />
+            demand across regional and international markets.
+          </div>
+
+          <div class="mt-3">
+            <a
+              class="energlobix__links text-black font-adelle-sans-bolds"
+              href="#our-business-areas"
+              >Learn More</a
+            >
+          </div>
+
+          <a href="#our-business-areas"
+            ><img class="mt-1" src="assets/Links/arrow-black.svg" alt=""
+          /></a>
+
+          <div class="w-100 half-way-bg">
+            <div class="custom-accordion-width-wrapper mb-4">
+              <!-- Skyline banner container -->
+              <div class="skyline-banner"></div>
+
+              <!-- Cards Row overlapping the banner -->
+              <div
+                class="row about-cards-row align-items-stretch justify-content-center g-4"
+              >
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="custom-card-gold">
+                    <h3
+                      class="energlobix__title font-adelle-sans-bold px-0 text-center text-dark-blue"
+                    >
+                      Our Vision
+                    </h3>
+                    <p
+                      class="energlobix__text font-adelle-sans-regular px-0 text-white"
+                    >
+                      To expand across globally relevant industries through
+                      businesses positioned for long-term growth, international
+                      reach and future market demand.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="custom-card-gold">
+                    <h3
+                      class="energlobix__title font-adelle-sans-bold px-0 text-center text-dark-blue"
+                    >
+                      Our Mission
+                    </h3>
+                    <p
+                      class="energlobix__text font-adelle-sans-regular px-0 text-white"
+                    >
+                      To build and operate businesses that contribute to
+                      economic growth, global connectivity and sustainable
+                      long-term development.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3
+              id="our-business-areas"
+              style="margin-top: 5rem;"
+              class="energlobix__title text-center text-blue-2 font-adelle-sans-bold"
+            >
+              Our Business Areas
+            </h3>
+
+            <div class="gold-divider-line mt-4 mx-auto"></div>
+
+            <h3
+              class="energlobix__title font-adelle-sans-bold text-center text-gold mt-4"
+            >
+              EnerGlobix Energy
+            </h3>
+
+            <div
+              class="container energlobix__text font-adelle-sans-regular mt-3 text-center text-white"
+            >
+              A global energy and commodity company focused on reliable supply,
+
+              <br class="hide-on-mobile" />
+              distribution and strategic energy solutions.
+            </div>
+
+            <div class="container energlobix__text mt-3 text-center text-white">
+              EnerGlobix Energy operates across sectors connected to fuel,
+
+              <br class="hide-on-mobile" />
+              commodities and infrastructure, supporting industries and markets
+
+              <br class="hide-on-mobile" />
+              through strong international networks, operational expertise and
+
+              <br class="hide-on-mobile" />
+              longterm partnerships.
+            </div>
+
+            <div class="gold-divider-line mt-4 mx-auto"></div>
+
+            <h3
+              class="energlobix__title font-adelle-sans-bold text-center text-gold mt-4"
+            >
+              EnerGlobix Agriculture
+            </h3>
+
+            <div
+              class="container energlobix__text font-adelle-sans-regular mt-3 text-center text-white"
+            >
+              Global sourcing and distribution of agricultural commodities
+              including
+
+              <br class="hide-on-mobile" />
+              fertilizer, grain, wheat and cooking oil.
+            </div>
+
+            <div class="container energlobix__text mt-3 text-center text-white">
+              To support supply chains and international trade through reliable
+
+              <br class="hide-on-mobile" />
+              sourcing, logistics and commodity partnerships across global food
+              and
+
+              <br class="hide-on-mobile" />
+              agricultural markets.
+            </div>
+
+            <div class="gold-divider-line mt-4 mx-auto"></div>
+
+            <h3
+              class="energlobix__title text-center font-adelle-sans-bold text-gold mt-4"
+            >
+              EnerGlobix Development
+            </h3>
+
+            <div
+              class="container energlobix__text font-adelle-sans-regular mt-3 text-center text-white"
+            >
+              Residential, commercial and mixed-use developments across the UAE.
+            </div>
+
+            <div
+            style="margin-bottom: 5rem;"
+              class="container font-adelle-sans-regular energlobix__text mt-3 text-center text-white"
+            >
+              Focused on quality, location and long-term relevance, EnerGlobix
+
+              <br class="hide-on-mobile" />
+              Development creates environments designed for modern living,
+
+              <br class="hide-on-mobile" />
+              business growth and connected urban communities.
+            </div>
+
+            <div class="row w-100 m-0 g-0 mb-5">
+              <!-- Row 1 -->
+
+              <div
+                id="Employees"
+                class="col-lg-6 col-sm-12 insights-box"
+                style="
+                  background: linear-gradient(
+                      rgba(184, 166, 133, 0.85),
+                      rgba(184, 166, 133, 0.85)
+                    ),
+                    url('assets/Links/compressed-img/split-right-cropped.png');
+                  background-size: cover;
+                  background-position: top;
+                  background-repeat: no-repeat;
+                "
+              >
+                <div class="w-100">
+
+                   <div class="text-center mb-4">
+              <img
+                src="assets/Links/half-logo.png"
+                alt=""
+                class="default-logo-size"
+              />
+            </div>
+
+                  <div
+                    class="energlobix__title px-0 font-adelle-sans-bold text-center text-dark-blue text-center"
+                  >
+                    Driven by Global Connectivity
+                  </div>
+
+                  <div
+                    class=" px-0 energlobix__text font-adelle-sans-regular mt-3 text-center text-white"
+                  >
+                    With international partnerships and crossmarket
+                    <br class="hide-on-mobile" />
+                    operations, the group continues to
+
+                    <br class="hide-on-mobile" />
+                    strengthen its global reach and industry
+                    <br class="hide-on-mobile" />
+                    presence.
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-6 col-sm-12  insights-box d-none d-lg-flex bg-dark-blue"
+              >
+                <div class="w-100">
+
+                   <div class="text-center mb-4">
+              <img
+                src="assets/Links/half-logo.png"
+                alt=""
+                class="default-logo-size"
+              />
+            </div>
+
+                  <div
+                    class="energlobix__title  text-center font-adelle-sans-bold text-gold text-center px-0"
+                  >
+                    Focused on Sustainable Growth
+                  </div>
+
+                  <div
+                    class=" energlobix__text font-adelle-sans-regular mt-3 text-center text-white px-0"
+                  >
+                    Our businesses are structured to support longterm
+
+                    <br class="hide-on-mobile" />
+                    relevance, strategic expansion and lasting
+
+                    <br class="hide-on-mobile" />
+                    market value.
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-6 col-sm-12 insights-box d-flex d-lg-none bg-dark-blue"
+              >
+                <div class="w-100">
+
+                   <div class="text-center mb-4">
+              <img
+                src="assets/Links/half-logo.png"
+                alt=""
+                class="default-logo-size"
+              />
+            </div>
+
+                  <div
+                    class="energlobix__title font-adelle-sans-bold text-center text-gold px-0 text-center"
+                  >
+                    Focused on Sustainable Growth
+                  </div>
+
+                  <div
+                    class=" energlobix__text font-adelle-sans-regular mt-3 text-center text-white px-0"
+                  >
+                    Our businesses are structured to support longterm
+
+                    <br class="hide-on-mobile" />
+                    relevance, strategic expansion and lasting
+
+                    <br class="hide-on-mobile" />
+                    market value.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3
+            style="margin-top: 5rem;"
+              class="energlobix__title text-center font-adelle-sans-bold text-gold"
+            >
+              Building for the Future
+            </h3>
+
+            <div
+              class="container energlobix__text font-adelle-sans-regular mt-3 text-center text-white"
+            >
+              EnerGlobix Holding brings together industries that power
+              <br class="hide-on-mobile" />
+              development, movement and global progress.
+            </div>
+
+            <div
+              class="container energlobix__text mt-3 font-adelle-sans-regular text-center text-white mb-3"
+            >
+              Together, our business reflects a commitment to innovation,
+
+              <br class="hide-on-mobile" />
+              operational strength and long term growth across the UAE and
+
+              <br class="hide-on-mobile" />
+              international markets.
+            </div>
+
+            <h3
+            style="margin-top: 4rem;"
+              class="energlobix__title font-adelle-sans-bold text-center text-gold"
+            >
+              Explore Our Companies
+            </h3>
+
+            <div class="container mt-4 px-4 px-lg-5" style="margin-bottom: 5rem; max-width: 960px;">
+              <div class="row justify-content-center g-5">
+                <div class="col-md-4 col-sm-12 text-center text-white px-lg-4">
+                  <div class="mb-3 font-adelle-sans-bold" style="letter-spacing: 0.05em; font-size: 1.15rem;">EnerGlobix Energy</div>
+                  <a
+                    href="https://energlobix.com/"
+                    class="btn-discover"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >DISCOVER</a
+                  >
+                </div>
+
+                <div class="col-md-4 col-sm-12 text-center text-white px-lg-4">
+                  <div class="mb-3 font-adelle-sans-bold" style="letter-spacing: 0.05em; font-size: 1.15rem;">EnerGlobix Agriculture</div>
+                  <a
+                    href="https://energlobixagriculture.kasehub.com/"
+                    class="btn-discover"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >DISCOVER</a
+                  >
+                </div>
+
+                <div class="col-md-4 col-sm-12 text-center text-white px-lg-4">
+                  <div class="mb-3 font-adelle-sans-bold" style="letter-spacing: 0.05em; font-size: 1.15rem;">EnerGlobix Development</div>
+                  <a
+                    href="https://energlobixdevelopment.kasehub.com/"
+                    class="btn-discover"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >DISCOVER</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section
+        id="section-contact"
+        class="contact-section"
+        style="min-height: 100vh;"
+      >
+        <div
+          class="container contact-container"
+          style="position: relative; z-index: 10;"
+        >
+          <!-- Heading -->
+          <h1 class="energlobix__title text-center text-center text-gold">
+            Contact us
+          </h1>
+
+          <!-- Main Row -->
+          <div class="contact-layout">
+            <!-- LEFT -->
+            <div class="contact-info">
+              <div class="mb-5">
+                <h2 class="contact-side-title">
+                  Office Location
+                </h2>
+
+                <p class="contact-side-text">
+                  Office 2704,<br />
+                  Jumeirah Business Center 2 (JBC 2),<br />
+                  JLT, Dubai, UAE
+                </p>
+              </div>
+
+              <div>
+                <h2 class="contact-side-title">
+                  Contact
+                </h2>
+
+                <p class="contact-side-text">
+                  info@energlobix.com
+                </p>
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="contact-form-wrapper">
+              <div class="form-grid">
+                <input type="text" placeholder="Name*" class="custom-input" />
+
+                <input type="text" placeholder="Phone*" class="custom-input" />
+
+                <input type="email" placeholder="Email*" class="custom-input" />
+
+                <input
+                  type="text"
+                  placeholder="Company*"
+                  class="custom-input"
+                />
+              </div>
+
+              <input
+                type="text"
+                placeholder="Subject*"
+                class="custom-input subject-input"
+              />
+
+              <textarea
+                placeholder="Message*"
+                class="custom-input custom-textarea"
+              ></textarea>
+
+              <button type="submit" class="contact-btn">
+                SEND MESSAGE
+              </button>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="contact-footer">
+            <a
+              href="index.html"
+              class="logo-container footer-logo"
+              style="text-decoration: none;"
+            >
+              <img
+                src="assets/Links/square-logo.png"
+                alt="EnerGlobix Holdings"
+                class="logo-img"
+              />
+            </a>
+
+            
+
+            <div class="footer-links-wrapper">
+              <h4 class="footer-link-text">
+                © EnerGlobix 2024
+              </h4>
+
+              <h4 class="footer-link-text footer-link-hover">
+                Terms of use
+              </h4>
+
+              <h4 class="footer-link-text footer-link-hover">
+                Privacy policy
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <button id="backToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Boostrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Javascript -->
+    <script src="assets/js/script.js"></script>
+
+    <script>
+      // Wait until the entire page is loaded
+      window.addEventListener("load", function () {
+        // Hide the loader
+        document.getElementById("loader").style.display = "none";
+        // Show the main content
+        document.getElementById("main-content").style.display = "block";
+        // Show message in console
+        console.log("Content is loaded");
+      });
+
+      // Accordion Functionality
+      function toggleAccordion(item) {
+        const content = item.querySelector(".approach-accordion-body");
+        const isOpen = item.getAttribute("data-open") === "true";
+
+        // Close other items
+        document
+          .querySelectorAll(".approach-accordion-item")
+          .forEach((other) => {
+            if (other !== item) {
+              other.setAttribute("data-open", "false");
+              const otherBody = other.querySelector(".approach-accordion-body");
+              if (otherBody) {
+                otherBody.style.maxHeight = "0";
+                otherBody.style.opacity = "0";
+              }
+              const otherIcon = other.querySelector(".approach-accordion-icon");
+              if (otherIcon) {
+                otherIcon.style.transform = "rotate(0deg)";
+              }
+            }
+          });
+
+        const icon = item.querySelector(".approach-accordion-icon");
+        if (isOpen) {
+          item.setAttribute("data-open", "false");
+          if (content) {
+            content.style.maxHeight = "0";
+            content.style.opacity = "0";
+          }
+          if (icon) {
+            icon.style.transform = "rotate(0deg)";
+          }
+        } else {
+          item.setAttribute("data-open", "true");
+          if (content) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.opacity = "1";
+          }
+          if (icon) {
+            icon.style.transform = "rotate(90deg)";
+          }
+        }
+      }
+
+      // Robust Menu Toggle and Accordion Logic
+      function initNavigationMenu() {
+        const openBtn = document.getElementById("open-menu-btn");
+        const navMenu = document.getElementById("nav-menu");
+        const closeBtn = document.getElementById("close-menu-btn");
+
+        if (!openBtn || !navMenu) return;
+
+        // Prevent duplicate listener binding
+        if (openBtn.dataset.bound) return;
+        openBtn.dataset.bound = "true";
+
+        openBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          navMenu.classList.toggle("active");
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            navMenu.classList.remove("active");
+          });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (navMenu.classList.contains("active") && !navMenu.contains(e.target) && !openBtn.contains(e.target)) {
+            navMenu.classList.remove("active");
+          }
+        });
+      }
+
+      function initSubmenuAccordion() {
+        const submenuToggles = document.querySelectorAll(".toggle-submenu");
+        submenuToggles.forEach(toggle => {
+          if (toggle.dataset.bound) return;
+          toggle.dataset.bound = "true";
+
+          toggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentLi = toggle.closest(".has-submenu");
+            const submenu = parentLi.querySelector(".nav-submenu");
+            
+            // Close other submenus first (accordion behavior)
+            document.querySelectorAll(".nav-submenu").forEach(sub => {
+              if (sub !== submenu) sub.classList.remove("open");
+            });
+            document.querySelectorAll(".has-submenu").forEach(li => {
+              if (li !== parentLi) li.classList.remove("active");
+            });
+            
+            submenu.classList.toggle("open");
+            parentLi.classList.toggle("active");
+          });
+        });
+      }
+
+      // Initialize instantly
+      initNavigationMenu();
+      initSubmenuAccordion();
+
+      // Initialize on DOMContentLoaded
+      document.addEventListener("DOMContentLoaded", () => {
+        initNavigationMenu();
+        initSubmenuAccordion();
+      });
+
+      // Initialize on Window Load
+      window.addEventListener("load", () => {
+        initNavigationMenu();
+        initSubmenuAccordion();
+      });
+
+      // Dynamic padding logic for accordion div
+      document.addEventListener("DOMContentLoaded", () => {
+        const approachAccordion = document.getElementById("approach-accordion");
+        const sectionApproachInner = document.getElementById(
+          "section-approach-inner"
+        );
+        const sectionSignature = document.getElementById("section-signature");
+
+        if (approachAccordion && sectionApproachInner && sectionSignature) {
+          const adjustOverlapPadding = () => {
+            const isMobile = window.innerWidth < 1024;
+            const gap = 112; // 28 in tailwind unit
+            const topOffset = isMobile ? 100 : 140; // matches -mt-[100px] and -mt-[140px]
+
+            // We don't add halfHeight because the accordion is not absolute
+            sectionApproachInner.style.paddingBottom = `${gap}px`;
+            sectionSignature.style.paddingTop = `${topOffset + gap}px`;
+          };
+
+          const resizeObserver = new ResizeObserver(() => {
+            adjustOverlapPadding();
+          });
+
+          resizeObserver.observe(approachAccordion);
+          window.addEventListener("resize", adjustOverlapPadding);
+
+          // Initial calculation
+          setTimeout(adjustOverlapPadding, 100);
+        }
+      });
+    </script>
+  </body>
+</html>
